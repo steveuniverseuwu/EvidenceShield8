@@ -49,9 +49,6 @@ export function LandingPage({ onRequestDemo }: LandingPageProps) {
 
           {/* Navigation */}
           <nav className="flex items-center gap-6">
-            <a href="#features" className="text-blue-300 hover:text-white transition-colors font-medium">
-              Features
-            </a>
             <motion.button
               onClick={onRequestDemo}
               className="px-6 py-2.5 bg-cyan-500 hover:bg-cyan-400 text-white font-semibold rounded-lg transition-all shadow-lg shadow-cyan-500/30 hover:shadow-cyan-400/50"
@@ -81,7 +78,7 @@ export function LandingPage({ onRequestDemo }: LandingPageProps) {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex items-center gap-4 mb-12">
+            <div className="flex items-center gap-4">
               <motion.button
                 onClick={onRequestDemo}
                 className="px-8 py-4 bg-cyan-500 hover:bg-cyan-400 text-white font-bold rounded-lg transition-all text-lg shadow-xl shadow-cyan-500/40 hover:shadow-cyan-400/60"
@@ -99,28 +96,6 @@ export function LandingPage({ onRequestDemo }: LandingPageProps) {
                 Watch Promo Video
               </motion.button>
             </div>
-
-            {/* UVP Section */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.8 }}
-              className="bg-slate-900/60 backdrop-blur-xl border border-blue-500/30 rounded-xl p-6"
-            >
-              <div className="flex items-start gap-4">
-                <div className="p-3 bg-blue-500/20 rounded-lg border border-blue-500/40">
-                  <Shield className="w-6 h-6 text-blue-400" />
-                </div>
-                <div>
-                  <h3 className="text-white font-bold text-lg mb-2">
-                    <span className="text-cyan-400">UVP:</span> The only system that verifies evidence integrity before and after upload,
-                  </h3>
-                  <p className="text-blue-200">
-                    ensuring admissibility in Philippine courts.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
           </motion.div>
 
           {/* Right Content - Dashboard Preview */}
