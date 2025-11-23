@@ -6,10 +6,12 @@ import { Footer } from "./components/Footer";
 import { UserTable } from "./components/UserTable";
 import { LoginPage } from "./components/LoginPage";
 import { SplashScreen } from "./components/SplashScreen";
+import { LandingPage } from "./components/LandingPage";
 import { UploadEvidence } from "./components/UploadEvidence";
 import { EvidenceFiles } from "./components/EvidenceFiles";
 import { ShareEvidence } from "./components/ShareEvidence";
 import { AuditTrail } from "./components/AuditTrail";
+import { Dashboard } from "./components/Dashboard";
 import { TamperDetectionDemo } from "./components/TamperDetectionDemo";
 import { BlockchainBackground } from "./components/BlockchainBackground";
 import cyberCrimeLogo from "./assets/CYBERCRIME.png";
@@ -107,7 +109,8 @@ const users: Record<string, { password: string; user: User }> = {
 };
 
 export default function App() {
-  const [showSplash, setShowSplash] = useState(true);
+  const [showLanding, setShowLanding] = useState(true);
+  const [showSplash, setShowSplash] = useState(false);
   const [currentUser, setCurrentUser] = useState<User | null>(null);
   const [loginError, setLoginError] = useState<string | null>(null);
   const [currentPage, setCurrentPage] = useState<string>("users");
@@ -130,20 +133,19 @@ export default function App() {
     setLoginError(null);
     setCurrentUser(userRecord.user);
     
-    // Set default page based on role
-    if (userRecord.user.role === "Administrator") {
-      setCurrentPage("users");
-    } else if (userRecord.user.role === "Prosecutor") {
-      setCurrentPage("files");
-    } else {
-      setCurrentPage("upload");
-    }
+    // Set default page to dashboard for all users
+    setCurrentPage("dashboard");
   };
 
   const handleLogout = () => {
     setCurrentUser(null);
     setLoginError(null);
     setCurrentPage("users");
+  };
+
+  const handleRequestDemo = () => {
+    setShowLanding(false);
+    setShowSplash(true);
   };
 
   const handleSplashComplete = () => {
@@ -166,6 +168,8 @@ export default function App() {
     if (!currentUser) return null;
 
     switch (currentPage) {
+      case "dashboard":
+        return <Dashboard currentUser={currentUser} />;
       case "users":
         return <UserTable currentUser={currentUser} />;
       case "upload":
@@ -184,6 +188,11 @@ export default function App() {
         return <UserTable currentUser={currentUser} />;
     }
   };
+
+  // Show landing page
+  if (showLanding) {
+    return <LandingPage onRequestDemo={handleRequestDemo} />;
+  }
 
   // Show splash screen
   if (showSplash) {

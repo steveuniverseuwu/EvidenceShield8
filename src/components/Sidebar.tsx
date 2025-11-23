@@ -1,4 +1,4 @@
-import { Users, Upload, FileCheck, Download, Share2, Activity, AlertTriangle } from "lucide-react";
+import { Users, Upload, FileCheck, Share2, Activity, AlertTriangle, BarChart3 } from "lucide-react";
 import { User } from "../App";
 import cyberCrimeLogo from "../assets/CYBERCRIME.png";
 
@@ -16,6 +16,7 @@ export function Sidebar({ currentUser, currentPage, onNavigate }: SidebarProps) 
 
     if (role === "Administrator") {
       return [
+        { id: "dashboard", label: "Dashboard", icon: BarChart3, description: "Analytics & Statistics" },
         { id: "users", label: "System Personnel", icon: Users, description: "Officers, Analysts & Prosecutors" },
         { id: "tamper", label: "Tamper Detection", icon: AlertTriangle, description: "Real-time Monitoring" },
         { id: "audit", label: "Audit Trail", icon: Activity, description: "Blockchain Logs" },
@@ -24,6 +25,7 @@ export function Sidebar({ currentUser, currentPage, onNavigate }: SidebarProps) 
 
     if (role === "Police Officer") {
       return [
+        { id: "dashboard", label: "Dashboard", icon: BarChart3, description: "Analytics & Statistics" },
         { id: "upload", label: "Upload Evidence", icon: Upload, description: "Upload Files" },
         { id: "files", label: "My Evidence", icon: FileCheck, description: "View & Verify" },
         { id: "share", label: "Share Evidence", icon: Share2, description: "Share to Forensics" },
@@ -33,6 +35,7 @@ export function Sidebar({ currentUser, currentPage, onNavigate }: SidebarProps) 
 
     if (role === "Forensics Specialist") {
       return [
+        { id: "dashboard", label: "Dashboard", icon: BarChart3, description: "Analytics & Statistics" },
         { id: "upload", label: "Upload Evidence", icon: Upload, description: "Upload Files" },
         { id: "files", label: "My Evidence", icon: FileCheck, description: "View & Verify" },
         { id: "share", label: "Share Evidence", icon: Share2, description: "Share to Prosecutor" },
@@ -42,6 +45,7 @@ export function Sidebar({ currentUser, currentPage, onNavigate }: SidebarProps) 
 
     if (role === "Prosecutor") {
       return [
+        { id: "dashboard", label: "Dashboard", icon: BarChart3, description: "Analytics & Statistics" },
         { id: "files", label: "Evidence Files", icon: FileCheck, description: "View & Verify" },
         { id: "audit", label: "Audit Trail", icon: Activity, description: "Blockchain Logs" },
       ];

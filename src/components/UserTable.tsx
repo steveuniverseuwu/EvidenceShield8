@@ -48,15 +48,15 @@ interface UserTableProps {
 const getRoleColor = (role: string) => {
   switch (role) {
     case "Administrator":
-      return "bg-emerald-100 text-emerald-700 border-emerald-300";
+      return "bg-blue-900/40 text-emerald-400 border-blue-500/30";
     case "Police Officer":
-      return "bg-blue-100 text-blue-700 border-blue-300";
+      return "bg-blue-900/40 text-blue-400 border-blue-500/30";
     case "Forensics Specialist":
-      return "bg-purple-100 text-purple-700 border-purple-300";
+      return "bg-blue-900/40 text-purple-400 border-blue-500/30";
     case "Prosecutor":
-      return "bg-indigo-100 text-indigo-700 border-indigo-300";
+      return "bg-blue-900/40 text-indigo-400 border-blue-500/30";
     default:
-      return "bg-gray-100 text-gray-700 border-gray-300";
+      return "bg-blue-900/40 text-gray-400 border-blue-500/30";
   }
 };
 

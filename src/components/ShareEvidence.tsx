@@ -508,14 +508,14 @@ export function ShareEvidence({ currentUser }: ShareEvidenceProps) {
       </div>
 
       {/* Info Box */}
-      <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+      <div className="bg-blue-900/40 backdrop-blur-xl border border-blue-500/30 rounded-xl p-4 shadow-lg shadow-blue-500/20">
         <div className="flex items-start gap-3">
-          <AlertCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-          <div className="text-sm text-blue-900">
+          <AlertCircle className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+          <div className="text-sm text-blue-100">
             <p className="mb-2">
               When you share evidence, the recipient will be able to:
             </p>
-            <ul className="list-disc list-inside space-y-1 text-blue-800">
+            <ul className="list-disc list-inside space-y-1 text-blue-200">
               <li>View the evidence file and all its metadata</li>
               <li>Verify the evidence on the blockchain</li>
               <li>Download the file from IPFS</li>
@@ -525,7 +525,7 @@ export function ShareEvidence({ currentUser }: ShareEvidenceProps) {
                   : "Use it in legal proceedings"}
               </li>
             </ul>
-            <p className="mt-3 text-blue-700">
+            <p className="mt-3 text-blue-300">
               All sharing actions are recorded on the blockchain audit trail for full transparency.
             </p>
           </div>

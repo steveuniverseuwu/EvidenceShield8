@@ -270,10 +270,18 @@ main,
   transform: translate(-50%, -50%) !important;
 }
 
-/* Smooth animations */
-[class*="transition"],
-[class*="animate"] {
-  will-change: auto;
+/* Smooth animations with GPU acceleration */
+[class*="transition"] {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Animate classes - exclude animate-spin to prevent freezing */
+[class*="animate"]:not(.animate-spin) {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* Optimize list rendering */
@@ -290,4 +298,93 @@ ol {
 .animate-spin {
   will-change: transform;
   /* DO NOT add transform here - it breaks the animation! */
+}
+
+/* Optimize Recharts animations for smooth rendering */
+.recharts-wrapper {
+  will-change: contents;
+  transform: translateZ(0);
+}
+
+.recharts-surface {
+  will-change: transform;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Smooth end-of-animation transitions for chart elements */
+/* Using shorter duration to add subtle smoothing without conflicting with Recharts */
+.recharts-bar-rectangle path,
+.recharts-rectangle {
+  transition: width 0.15s ease-out, height 0.15s ease-out, x 0.15s ease-out, y 0.15s ease-out;
+  will-change: width, height, x, y;
+  transform: translateZ(0);
+}
+
+.recharts-pie-sector path,
+.recharts-sector {
+  transition: d 0.15s ease-out;
+  will-change: d;
+  transform: translateZ(0);
+}
+
+.recharts-line-curve,
+.recharts-curve path,
+.recharts-line path {
+  transition: d 0.15s ease-out;
+  will-change: d;
+  transform: translateZ(0);
+}
+
+.recharts-area-area,
+.recharts-area-curve,
+.recharts-area path {
+  transition: d 0.15s ease-out;
+  will-change: d;
+  transform: translateZ(0);
+}
+
+.recharts-radar-polygon,
+.recharts-polygon {
+  transition: points 0.15s ease-out;
+  will-change: points;
+  transform: translateZ(0);
+}
+
+.recharts-dot {
+  transition: cx 0.1s ease-out, cy 0.1s ease-out;
+  will-change: cx, cy;
+  transform: translateZ(0);
+}
+
+/* Smooth chart element animations with proper GPU acceleration */
+.recharts-bar-rectangle,
+.recharts-pie-sector,
+.recharts-line,
+.recharts-area,
+.recharts-radar,
+.recharts-curve {
+  will-change: transform, opacity;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Optimize chart container for smooth animations */
+.recharts-layer {
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* Optimize chart tooltips */
+.recharts-tooltip-wrapper {
+  will-change: transform, opacity;
+  transition: opacity 0.2s ease-in-out;
+  transform: translateZ(0);
+}
+
+/* Force hardware acceleration for chart containers */
+[class*="ChartCard"] {
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }

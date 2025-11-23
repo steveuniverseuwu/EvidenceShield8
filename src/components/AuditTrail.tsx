@@ -431,10 +431,10 @@ export function AuditTrail({ currentUser }: AuditTrailProps) {
 
                   {/* ZKP Proof Badge */}
                   {event.zkpProofId && (
-                    <div className="flex items-center gap-2 text-sm bg-purple-50 -mx-1 px-2 py-1.5 rounded">
-                      <Shield className="w-4 h-4 text-purple-600" />
-                      <span className="text-purple-700">Zero-Knowledge Proof:</span>
-                      <code className="text-purple-900 bg-white px-2 py-1 rounded text-xs flex-1 truncate">
+                    <div className="flex items-center gap-2 text-sm bg-purple-900/40 border border-purple-500/30 -mx-1 px-2 py-1.5 rounded">
+                      <Shield className="w-4 h-4 text-purple-400" />
+                      <span className="text-purple-300">Zero-Knowledge Proof:</span>
+                      <code className="text-purple-200 bg-slate-800/60 px-2 py-1 rounded text-xs flex-1 truncate border border-purple-500/20">
                         {event.zkpProofId}
                       </code>
                       {event.eventType === "verify" && (
@@ -456,9 +456,9 @@ export function AuditTrail({ currentUser }: AuditTrailProps) {
 
                   {/* Merkle Root for batch uploads */}
                   {event.merkleRoot && (
-                    <div className="flex items-center gap-2 text-sm bg-purple-50 -mx-1 px-2 py-1.5 rounded">
-                      <span className="text-purple-700">🌳 Merkle Root:</span>
-                      <code className="text-purple-900 bg-white px-2 py-1 rounded text-xs flex-1 truncate">
+                    <div className="flex items-center gap-2 text-sm bg-purple-900/40 border border-purple-500/30 -mx-1 px-2 py-1.5 rounded">
+                      <span className="text-purple-300">🌳 Merkle Root:</span>
+                      <code className="text-purple-200 bg-slate-800/60 px-2 py-1 rounded text-xs flex-1 truncate border border-purple-500/20">
                         {event.merkleRoot}
                       </code>
                     </div>
@@ -489,46 +489,46 @@ export function AuditTrail({ currentUser }: AuditTrailProps) {
 
       {/* Info Box */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div className="bg-blue-50 border border-blue-200 rounded-xl p-4">
+        <div className="bg-blue-900/40 backdrop-blur-xl border border-blue-500/30 rounded-xl p-4 shadow-lg shadow-blue-500/20">
           <div className="flex items-start gap-3">
-            <AlertCircle className="w-5 h-5 text-blue-600 flex-shrink-0 mt-0.5" />
-            <div className="text-sm text-blue-900">
+            <AlertCircle className="w-5 h-5 text-blue-400 flex-shrink-0 mt-0.5" />
+            <div className="text-sm text-blue-100">
               <p className="mb-2 font-semibold">
                 Blockchain Audit Trail
               </p>
               <p className="mb-2">
                 All activities are permanently recorded on the Polygon blockchain:
               </p>
-              <ul className="list-disc list-inside space-y-1 text-blue-800">
+              <ul className="list-disc list-inside space-y-1 text-blue-200">
                 <li>Evidence uploads with IPFS hash and metadata</li>
                 <li>File sharing between departments and users</li>
                 <li>Verification attempts and results</li>
                 <li>Download activities for accountability</li>
               </ul>
-              <p className="mt-3 text-blue-700">
+              <p className="mt-3 text-blue-300">
                 This creates a transparent, tamper-proof audit trail for legal proceedings.
               </p>
             </div>
           </div>
         </div>
 
-        <div className="bg-purple-50 border border-purple-200 rounded-xl p-4">
+        <div className="bg-purple-900/40 backdrop-blur-xl border border-purple-500/30 rounded-xl p-4 shadow-lg shadow-purple-500/20">
           <div className="flex items-start gap-3">
-            <Shield className="w-5 h-5 text-purple-600 flex-shrink-0 mt-0.5" />
-            <div className="text-sm text-purple-200">
+            <Shield className="w-5 h-5 text-purple-400 flex-shrink-0 mt-0.5" />
+            <div className="text-sm text-purple-100">
               <p className="mb-2 font-semibold">
                 Zero-Knowledge Proofs (ZKP)
               </p>
               <p className="mb-2">
                 Automatic cryptographic proof generation for evidence integrity:
               </p>
-              <ul className="list-disc list-inside space-y-1 text-purple-800">
+              <ul className="list-disc list-inside space-y-1 text-purple-200">
                 <li>File hashing using SHA-256</li>
                 <li>ZK-SNARK proof generation (Groth16)</li>
                 <li>Proof stored on blockchain for verification</li>
                 <li>Verify integrity without revealing content</li>
               </ul>
-              <p className="mt-3 text-purple-700">
+              <p className="mt-3 text-purple-300">
                 ZKP ensures evidence authenticity while maintaining privacy and confidentiality.
               </p>
             </div>
